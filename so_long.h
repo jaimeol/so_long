@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:09:31 by jolivare          #+#    #+#             */
-/*   Updated: 2024/02/13 11:01:49 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/02/13 15:27:51 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,16 @@
 typedef struct s_list
 {
 	struct s_list	*next;
-	char			*content;	
-}
+	char			*content;
+	int				size;
+}	t_list;
+
+typedef struct s_game
+{
+	char 	**map;
+	int		columns;
+	int		rows;
+}	t_game;
 
 size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
