@@ -6,13 +6,13 @@
 #    By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/10 14:24:32 by jolivare          #+#    #+#              #
-#    Updated: 2024/02/10 16:49:51 by jolivare         ###   ########.fr        #
+#    Updated: 2024/02/13 16:37:10 by jolivare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-SOURCES = 
+SOURCES = get_next_line.c get_next_line_utils.c read_map.c check.c \
 
 OBJECTS = $(SOURCES:.c=.o)
 

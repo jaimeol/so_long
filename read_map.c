@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:30:15 by jolivare          #+#    #+#             */
-/*   Updated: 2024/02/13 15:32:06 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/02/13 17:54:43 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	add_line(char *line, t_list **list)
 	node = (t_list *) malloc (sizeof (t_list));
 	if (!node)
 		return ;
-	node->num = n;
+	node->content = line;
 	node->next = NULL;
 	aux = *list;
 	if (*list)
@@ -69,7 +69,7 @@ void	read_map(t_game *game)
 	
 	fd = read_file();
 	list  = NULL;
-	game->map = NULL:
+	game->map = NULL;
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -79,5 +79,5 @@ void	read_map(t_game *game)
 	}
 	create_map (game, list, list->size);
 	free (list);
-	//Función para checkear el mapa
+	checker(game);
 }
