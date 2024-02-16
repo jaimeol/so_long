@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 16:22:47 by jolivare          #+#    #+#             */
-/*   Updated: 2024/02/14 18:33:44 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/02/16 11:31:26 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	checker(t_game *game)
 	while (i < game->rows)
 	{
 		j = 0;
-		if (game->map[i][j] != '1' || game->map[i][ft_strlen(rows) - 1] != '1')
+		if (game->map[i][j] != '1' || game->map[i][ft_strlen(game->rows) - 1] != '1')
 		{
 			perror("Error\nEl mapa no está rodeado de muros\n");
 			exit (1);
