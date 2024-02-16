@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:30:15 by jolivare          #+#    #+#             */
-/*   Updated: 2024/02/13 17:54:43 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/02/14 16:50:15 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	add_line(char *line, t_list **list)
 	}
 	else
 		*list = node;
+		
 	(*list)->size++;
 }
 
