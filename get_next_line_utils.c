@@ -6,15 +6,15 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:05:01 by jolivare          #+#    #+#             */
-/*   Updated: 2024/02/13 10:05:17 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/02/22 12:17:17 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_strlen(const char *s)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (s[i] != '\0')
@@ -22,29 +22,29 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*dest;
 	size_t	i;
 	size_t	j;
 
 	i = 0;
-	j = 0;
-	dest = malloc(sizeof (char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (!dest || !s1 || !s2)
+	dest = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (!dest)
 		return (NULL);
-	while (s1[i] != '\0')
+	while (s1 && s1[i] != '\0')
 	{
 		dest[i] = s1[i];
 		i++;
 	}
+	j = 0;
 	while (s2[j] != '\0')
 	{
-		dest[i] = s2[j];
-		i++;
+		dest[i + j] = s2[j];
 		j++;
 	}
-	dest[i] = '\0';
+	dest[i + j] = '\0';
+	//free (s1);
 	return (dest);
 }
 

@@ -6,7 +6,7 @@
 #    By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/10 14:24:32 by jolivare          #+#    #+#              #
-#    Updated: 2024/02/13 16:37:10 by jolivare         ###   ########.fr        #
+#    Updated: 2024/02/22 15:44:30 by jolivare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ $(NAME): $(OBJECTS)
 	$(CC) $(CFLAGS) -Imlx -c $< -o $@
 clean:
 	$(REMOVE) $(OBJECTS)
-
+fclean: clean
+	$(REMOVE) $(NAME)
 re: fclean all
 
 .PHONY: all clean fclean re
