@@ -1,0 +1,7 @@
+Borrar las anteriores
+
+Leer el archivo una vez para saber el numero de lineas
+
+Sabiendo el numero de lineas hacer malloc de ese numero de lineas
+
+Asignar con get_next_line cada linea a una posición del doble puntero

@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:09:31 by jolivare          #+#    #+#             */
-/*   Updated: 2024/02/22 12:24:31 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:05:04 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,8 @@ char	*ft_strchr(const char *s, int i);
 char	*get_next_line(int fd);
 void	checker(t_game *game);
 char	*ft_strdup(const char *s);
+void	assign_dimensions(t_game *game, char **map);
+char	*ft_substr(char const *s, int start, int len);
+void	width_error(void);
 
 #endif

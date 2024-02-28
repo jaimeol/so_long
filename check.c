@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 16:22:47 by jolivare          #+#    #+#             */
-/*   Updated: 2024/02/23 18:47:09 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:17:59 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,26 +21,23 @@ void	checker(t_game *game)
 	while (i < game->x_large)
 	{
 		j = 0;
-		if (game->map[i][j] != '1' || game->map[i][game->x_large - 1] != '1')
+		while (j <= game->x_large - 1)
 		{
-			perror("Error\nEl mapa no está rodeado de muros\n");
-			exit (1);
-		}
-		while (j < game->y_large)
-		{
-			if (game->map[i][j] != '0' && game->map[i][j] != 1 && game->map[i][j] != 'P'
-				&& game->map[i][j] != 'E' && game->map[i][j] != 'C')
+			printf ("caracter comprobado: %c\n", game->map[i][j]);
+			printf ("Y_large: %d\nJ: %d\n", game->y_large, j);
+			if (game->map[i][j] != '0' && game->map[i][j] != '1' && game->map[i][j] != 'P' && game->map[i][j] != 'E' && game->map[i][j] != '\n')
 			{
-				perror("Error: El mapa solo puede estar compuesto por 0,1,P,C o E\n");
+				printf("Error: El mapa solo puede estar compuesto por 0, 1, P, C o E\n");
 				exit (1);
-			}
-			else
-			{
-				game->x_p = j;
-				game->y_p = i;
 			}
 			j++;
 		}
 		i++;
 	}
+}
+
+void	width_error(void)
+{
+	printf ("Error: Las líneas deben tener la misma longitud\n");
+	exit (1);
 }
