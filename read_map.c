@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:30:15 by jolivare          #+#    #+#             */
-/*   Updated: 2024/02/28 18:00:16 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/02/28 19:36:30 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	**create_map(char *file, t_game **game)
 	char	**map;
 	int		i;
 	char	*aux_map;
-
+	
 	i = 0;
 	int fd = open(file, O_RDONLY);
 	aux_map = NULL;
@@ -44,6 +44,7 @@ char	**create_map(char *file, t_game **game)
 		if  (!map[i])
 			free_map(map);
 		aux_map = get_next_line(fd);
+		erase_newline(aux_map);
 		map[i] = aux_map;
 		i++;
 	}
@@ -58,18 +59,19 @@ char	*read_map(char *map, t_game **game)
 	int		height;
 	int		width;
 	
-	height = 1;
+	height = 0;
 	width = 0;
 	(*game) = (t_game *)malloc(sizeof(t_game));
 	fd = open(map, O_RDONLY);
 	line = get_next_line(fd);
+	erase_newline(line);
 	width = ft_strlen(line);
+	(*game)->x_large = width;
 	while (line != NULL)
 	{
 		line = get_next_line(fd);
 		height++;
 	}
-	(*game)->x_large = width;
 	(*game)->y_large = height;
 	(*game)->map_size = (width * height);
 	line = NULL;
@@ -88,7 +90,7 @@ int main(int argc, char *argv[])
     t_game *game;
     char *map_file = argv[1];
     char *map_content = read_map(map_file, &game);
-	printf ("Ancho del mapa: %d\n", game->y_large);
+	printf ("Largo del mapa: %d\n", game->x_large);
 	game->map = create_map(map_file, &game);
 	while ((*game).map[i])
 	{
