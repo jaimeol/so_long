@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:09:31 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/03 17:41:47 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/03 19:53:38 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_game
 	int		x_large;
 	int		x_p;
 	int		y_p;
+	int		c_num;
 	int		map_size;
 }	t_game;
 
@@ -44,8 +45,12 @@ void	checker(t_game *game);
 void	check_width(t_game *game);
 void	check_walls(t_game *game);
 void	check_char(t_game *game);
+void	check_coins(t_game **game);
+void	check_exit(t_game *game);
 void	width_error(void);
 void	wall_error(void);
 void	char_error(void);
+void	coin_error(void);
+void	exit_error(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:30:15 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/03 17:41:22 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/03 19:22:01 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
 		printf("%s\n", (*game).map[i]);
 		i++;
 	}
-	check_char(game);
+	checker(game);
 	free(map_content);
     return (0);
 }
