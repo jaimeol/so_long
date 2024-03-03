@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:30:15 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/03 12:18:50 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/03 17:41:22 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*free_map(char **map)
 		i++;
 	}
 	free(map);
-	return(NULL);
+	return (NULL);
 }
 
 char	**create_map(char *file, t_game **game)
@@ -66,6 +66,7 @@ char	*read_map(char *map, t_game **game)
 	(*game) = (t_game *)malloc(sizeof(t_game));
 	fd = open(map, O_RDONLY);
 	line = get_next_line(fd);
+	erase_newline(line);
 	width = ft_strlen(line);
 	while (line != NULL)
 	{
@@ -97,7 +98,7 @@ int main(int argc, char *argv[])
 		printf("%s\n", (*game).map[i]);
 		i++;
 	}
-	check_walls(game);
+	check_char(game);
 	free(map_content);
     return (0);
 }

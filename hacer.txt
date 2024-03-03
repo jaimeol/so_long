@@ -5,6 +5,5 @@ Para hacer(Parseo):
 -Checkear que haya al menos una coin y una salida
 -Checkear que el mapa se pueda completar
 -Checkear que solo haya un jugador
--Checkear que el mapa este rodeado de muros
 -Checkear que los caracteres sean validos
 

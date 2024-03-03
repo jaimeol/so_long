@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 12:11:06 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/03 12:17:42 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/03 17:36:25 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,11 @@ void	width_error(void)
 void	wall_error(void)
 {
 	printf("Error: El mapa debe estar rodeado de muros\n");
+	exit (1);
+}
+
+void	char_error(void)
+{
+	printf("Error: El mapa solo puede estar compuesto por los caracteres 1, 0, P, E y C");
 	exit (1);
 }
