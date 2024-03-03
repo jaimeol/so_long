@@ -6,38 +6,49 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 16:22:47 by jolivare          #+#    #+#             */
-/*   Updated: 2024/02/28 17:17:59 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/03 12:56:08 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	checker(t_game *game)
+/*void	checker(t_game *game)
+{
+}*/
+
+void	check_width(t_game *game)
+{
+	int		i;
+	int		check;
+	int		width;
+	
+	i = 0;
+	width = ft_strlen(game->map[0]);
+	while (game->map[i])
+	{
+		check = ft_strlen(game->map[i]);
+		if (check != width)
+			width_error();
+		i++;
+	}
+}
+
+void	check_walls(t_game *game)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (i < game->x_large)
+	while(game->map[i])
 	{
 		j = 0;
-		while (j <= game->x_large - 1)
+		printf("Hola\n");
+		while (j <= game->x_large)
 		{
-			printf ("caracter comprobado: %c\n", game->map[i][j]);
-			printf ("Y_large: %d\nJ: %d\n", game->y_large, j);
-			if (game->map[i][j] != '0' && game->map[i][j] != '1' && game->map[i][j] != 'P' && game->map[i][j] != 'E' && game->map[i][j] != '\n')
-			{
-				printf("Error: El mapa solo puede estar compuesto por 0, 1, P, C o E\n");
-				exit (1);
-			}
+			if (game->map[0][j] != '1' || game->map[game->y_large][j] != '1')
+				wall_error();
 			j++;
 		}
 		i++;
 	}
-}
-
-void	width_error(void)
-{
-	printf ("Error: Las líneas deben tener la misma longitud\n");
-	exit (1);
 }

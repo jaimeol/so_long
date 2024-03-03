@@ -1,7 +1,10 @@
-Borrar las anteriores
+La  función checker va a ser únicamente para llamar a las funciones que imprimen el error
 
-Leer el archivo una vez para saber el numero de lineas
+Para hacer(Parseo):
 
-Sabiendo el numero de lineas hacer malloc de ese numero de lineas
+-Checkear que haya al menos una coin y una salida
+-Checkear que el mapa se pueda completar
+-Checkear que solo haya un jugador
+-Checkear que el mapa este rodeado de muros
+-Checkear que los caracteres sean validos
 
-Asignar con get_next_line cada linea a una posición del doble puntero

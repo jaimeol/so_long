@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 10:25:31 by jolivare          #+#    #+#             */
-/*   Updated: 2024/02/28 18:32:05 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/01 16:43:50 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,11 @@ char	*erase_newline(char *str)
 	int	i;
 	
 	i = 0;
-	while (str[i] && str[i] != '\n')
+	while (str[i])
+	{
+		if (str[i] == '\n')
+			str[i] = '\0';
 		i++;
-	if (str[i] == '\n')
-		ft_substr(str, 0, i);
+	}
 	return (str);
 }
