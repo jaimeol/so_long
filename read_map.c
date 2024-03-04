@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:30:15 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/03 19:22:01 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:45:38 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char	*read_map(char *map, t_game **game)
 
 int main(int argc, char *argv[])
 {
-	int i = 0;
+	//int i = 0;
 	if (argc == 1)
 	{
 		printf("No has pasado ningún mapa");
@@ -93,12 +93,13 @@ int main(int argc, char *argv[])
     char *map_file = argv[1];
     char *map_content = read_map(map_file, &game);
 	game->map = create_map(map_file, &game);
-	while ((*game).map[i])
+	/*while ((*game).map[i])
 	{
 		printf("%s\n", (*game).map[i]);
 		i++;
-	}
+	}*/
 	checker(game);
+	flood_map(game);
 	free(map_content);
     return (0);
 }

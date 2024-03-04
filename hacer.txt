@@ -1,9 +1,5 @@
 La  función checker va a ser únicamente para llamar a las funciones que imprimen el error
 
 Para hacer(Parseo):
-
--Checkear que haya al menos una coin y una salida
--Checkear que el mapa se pueda completar
--Checkear que solo haya un jugador
--Checkear que los caracteres sean validos
+-Mirar que el mapa termine en .ber
 

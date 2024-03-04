@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:09:31 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/03 19:53:38 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/04 16:46:30 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,16 @@ void	check_walls(t_game *game);
 void	check_char(t_game *game);
 void	check_coins(t_game **game);
 void	check_exit(t_game *game);
+void	check_player(t_game *game);
+void	assign_player_pos(t_game **game);
+void	flood_map(t_game *game);
+void	reverse_flood(t_game *game);
 void	width_error(void);
 void	wall_error(void);
 void	char_error(void);
 void	coin_error(void);
 void	exit_error(void);
+void	player_error(void);
+void	path_error(void);
 
 #endif
