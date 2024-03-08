@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:54:34 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/04 16:47:01 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/06 11:53:31 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	checker(t_game *game)
 	check_coins(&game);
 	check_exit(game);
 	check_player(game);
+	check_path(game);
 }
 
 void	check_player(t_game *game)
@@ -60,8 +61,8 @@ void	assign_player_pos(t_game **game)
 		{
 			if ((*game)->map[i][j] == 'P')
 			{
-				(*game)->x_p = i;
-				(*game)->y_p = j;
+				(*game)->y_p = i;
+				(*game)->x_p = j;
 			}
 			j++;
 		}
@@ -69,30 +70,16 @@ void	assign_player_pos(t_game **game)
 	}
 }
 
-void	flood_map(t_game *game)
+void	check_path(t_game *game)
 {
-	int	i;
-	int	j;
-	int	k;
-	char **aux_map;
-	
-	assign_player_pos(&game);
-	i = 1;
-	aux_map = game->map;
-	while (aux_map[i])
-	{
-		j = 1;
-		while (aux_map[i][j] != '1')
-		{
-			aux_map[i][j] = '1';
-			j++;
-		}
-		i++;
-		if (i == game->y_large)
-			break;
-	}
-	reverse_flood(game);
+	char	**aux_map;
+	int		i;
+	int		j;
+
 	i = 0;
+	aux_map = game->map;
+	assign_player_pos(&game);
+	flood_map(game->y_p, game->x_p, aux_map);
 	while (aux_map[i])
 	{
 		j = 0;
@@ -104,32 +91,16 @@ void	flood_map(t_game *game)
 		}
 		i++;
 	}
-	k = 0;
-	while (aux_map[k])
-	{
-		printf("%s\n", aux_map[k]);
-		k++;
-	}
 }
 
-void	reverse_flood(t_game *game)
+void	check_format(char *argv)
 {
 	int	i;
-	int	j;
-	char **aux_map;
 
-	i = 1;
-	aux_map = game->map;
-	while (aux_map[i])
-	{
-		j = game->x_large - 2;
-		while (aux_map[i][j] != '1')
-		{
-			aux_map[i][j] = '1';
-			j--;
-		}
+	i = 0;
+	while (argv[i])
 		i++;
-		if (i == game->y_large)
-			break;
-	}
+	if (argv[i - 1] != 'r' || argv[i - 2] != 'e' || argv[i - 3] != 'b'
+		|| argv[i - 4] != '.')
+		format_error();
 }

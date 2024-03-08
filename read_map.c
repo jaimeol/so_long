@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:30:15 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/04 14:45:38 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/08 10:43:35 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,9 @@ char	**create_map(char *file, t_game **game)
 			free_map(map);
 		aux_map = get_next_line(fd);
 		map[i] = erase_newline(aux_map);
+		free(map[i]);
 		width = ft_strlen(map[i]);
-		printf ("largo del mapa: %d\n", width);
+		ft_printf ("largo del mapa: %d\n", width);
 		i++;
 	}
 	map[i] = NULL;
@@ -66,11 +67,13 @@ char	*read_map(char *map, t_game **game)
 	(*game) = (t_game *)malloc(sizeof(t_game));
 	fd = open(map, O_RDONLY);
 	line = get_next_line(fd);
+	free(line);
 	erase_newline(line);
 	width = ft_strlen(line);
 	while (line != NULL)
 	{
 		line = get_next_line(fd);
+		free(line);
 		height++;
 	}
 	line = NULL;
@@ -79,27 +82,30 @@ char	*read_map(char *map, t_game **game)
 	(*game)->map_size = (width * height);
 	close(fd);
 	return (line);
-}
+} 
 
-int main(int argc, char *argv[])
+/*int main(int argc, char *argv[])
 {
-	//int i = 0;
+	int i = 0;
 	if (argc == 1)
 	{
-		printf("No has pasado ningún mapa");
+		ft_printf("No has pasado ningún mapa");
 		exit (1) ;
 	}
     t_game *game;
+	check_format(argv[1]);
     char *map_file = argv[1];
     char *map_content = read_map(map_file, &game);
 	game->map = create_map(map_file, &game);
-	/*while ((*game).map[i])
+	while ((*game).map[i])
 	{
-		printf("%s\n", (*game).map[i]);
+		ft_printf("%s\n", (*game).map[i]);
 		i++;
-	}*/
+	}
+	ft_printf("\n");
 	checker(game);
-	flood_map(game);
 	free(map_content);
+	exit (0);
+	//atexit(leaks);
     return (0);
-}
+}*/

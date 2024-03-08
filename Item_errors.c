@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_errors2.c                                    :+:      :+:    :+:   */
+/*   Item_errors.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 10:57:41 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/04 11:22:37 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/05 10:48:15 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 void	player_error(void)
 {
-	printf("Error: Debe haber un jugador\n");
+	ft_printf("Error: Debe haber un jugador\n");
 	exit (1);
 }
 void	coin_error(void)
 {
-	printf("Error: El mapa debe de tener al menos una moneda\n");
+	ft_printf("Error: El mapa debe de tener al menos una moneda\n");
 	exit (1);
 }
 
 void	exit_error(void)
 {
-	printf("Error: El mapa debe tener una salida\n");
+	ft_printf("Error: El mapa debe tener una salida\n");
 	exit (1);
 }

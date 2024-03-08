@@ -3,3 +3,6 @@ La  función checker va a ser únicamente para llamar a las funciones que imprim
 Para hacer(Parseo):
 -Mirar que el mapa termine en .ber
 
+Para hacer(Juego):
+-Buscar la p y guardar la posición para que aparezca cuando se tengan todas las monedas.
+
