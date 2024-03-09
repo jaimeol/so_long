@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:29:55 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/09 12:28:42 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/09 16:48:42 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int main(int argc, char *argv[])
 {
 	t_window window;
+	t_map	new_map;
 	window.mlx = mlx_init();
 	if (argc != 2)
 	{
@@ -32,9 +33,8 @@ int main(int argc, char *argv[])
     char *map_content = read_map(map_file, &game);
 	(*game).map = create_map(map_file, &game);
 	checker(game);
-	printf("%d\n", (*game).x_large);
-	printf("%d\n", (*game).y_large);
-	window.win = mlx_new_window(window.mlx, (*game).x_large, (*game).y_large, "juego");
+	initialize_wall(window.mlx, &new_map);
+	window.win = mlx_new_window(window.mlx, ((*game).x_large) *  64, ((*game).y_large) * 64 * 2, "juego");
 	mlx_loop(window.mlx);
 	free (map_content);
 	exit (0);

@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:09:31 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/07 12:10:06 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/09 17:50:09 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,21 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include "./printf/ft_printf.h"
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 33
-# endif
+# define WALL "sprites/wall.xpm"
+# define BUFFER_SIZE 33
 
 typedef struct s_window
 {
 	void	*mlx;
 	void	*win;
 }	t_window;
+
+typedef struct s_map
+{
+	int	size_x;
+	int	size_y;
+	void	*wall_img;
+}	t_map;
 
 typedef struct s_game
 {
@@ -41,6 +47,9 @@ typedef struct s_game
 	int		e_y;
 	int		map_size;
 }	t_game;
+
+
+void	initialize_wall(void *mlx, t_map *map);
 
 int		ft_strlen(const char *s);
 char	*ft_strjoin(char *s1, char *s2);
