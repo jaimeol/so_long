@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 10:25:31 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/01 16:43:50 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/12 12:58:05 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,21 @@ char	*erase_newline(char *str)
 		i++;
 	}
 	return (str);
+}
+
+char	**duplicate_map(t_game *game)
+{
+	int 	i;
+	char	**aux_map;
+
+	i = 0;
+	aux_map = (char **)malloc(sizeof(char *) * (game->y_large));
+	while (game->map[i] != NULL)
+	{
+		aux_map[i] = ft_strdup(game->map[i]);
+		i++;
+	}
+	aux_map[i] = NULL;
+	free(aux_map);
+	return(aux_map);
 }

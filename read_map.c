@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:30:15 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/08 10:43:35 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/12 12:41:50 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	**create_map(char *file, t_game **game)
 		map[i] = erase_newline(aux_map);
 		free(map[i]);
 		width = ft_strlen(map[i]);
-		ft_printf ("largo del mapa: %d\n", width);
+		ft_printf ("Largo del mapa: %d\n", width);
 		i++;
 	}
 	map[i] = NULL;

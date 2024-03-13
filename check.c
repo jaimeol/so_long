@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 16:22:47 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/08 11:17:55 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/12 17:42:28 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,9 @@ void	check_coins(t_game **game)
 		while (j != (*game)->x_large - 1)
 		{
 			if ((*game)->map[i][j] == 'C')
+			{
 				coin++;
+			}
 			j++;
 		}
 		i++;
