@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:09:31 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/13 12:39:29 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/14 16:53:47 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define WALL "sprites/wall.xpm"
 # define PLAYER "sprites/player.xpm"
 # define COIN "sprites/coin.xpm"
+# define EXIT "sprites/exit.xpm"
 # define BUFFER_SIZE 33
 
 typedef struct s_window
@@ -30,14 +31,13 @@ typedef struct s_window
 	void	*win;
 }	t_window;
 
-typedef struct s_map
+typedef struct s_image
 {
-	int	size_x;
-	int	size_y;
 	void	*wall_img;
 	void	*player_img;
 	void	*coin_img;
-}	t_map;
+	void	*exit_img;
+}	t_image;
 
 typedef struct s_game
 {
@@ -52,13 +52,38 @@ typedef struct s_game
 	int		map_size;
 }	t_game;
 
+typedef struct s_map
+{
+	t_window	win;
+	t_image		image;
+	t_game		game;
+}	t_map;
 
-void	initialize_wall(void *mlx, t_map *map);
-void	initialize_player(void *mlx, t_map *map);
-void	initialize_coin(void *mlx, t_map *map);
-void	render_wall(t_game *game, t_map *map, t_window *mlx);
-void	render_player(t_game *game, t_map *map, t_window *mlx);
-void	render_coin(t_game *game, t_map *map, t_window *mlx);
+enum
+{
+	KEY_A = 0,
+	KEY_S = 1,
+	KEY_D = 2,
+	KEY_W = 13,
+	KEY_ESCAPE = 53,
+	KEY_LEFT = 123,
+	KEY_RIGHT = 124,
+	KEY_DOWN = 125,
+	KEY_UP = 126
+};
+
+
+void	initialize_wall(void *mlx, t_image *map);
+void	initialize_player(void *mlx, t_image *map);
+void	initialize_coin(void *mlx, t_image *map);
+void	initialize_exit(void *mlx, t_image *map);
+void	render_wall(t_game *game, t_image *map, t_window *mlx);
+void	render_player(t_game *game, t_image *map, t_window *mlx);
+void	render_coin(t_game *game, t_image *map, t_window *mlx);
+void	render_exit(t_game *game, t_image *map, t_window *mlx);
+
+int	keyhook(int keycode, t_map *scene);
+void	movement(t_map *scene, int dir);
 
 int		ft_strlen(const char *s);
 char	*ft_strjoin(char *s1, char *s2);

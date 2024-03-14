@@ -6,7 +6,7 @@
 #    By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/10 14:24:32 by jolivare          #+#    #+#              #
-#    Updated: 2024/03/09 16:48:17 by jolivare         ###   ########.fr        #
+#    Updated: 2024/03/14 16:30:13 by jolivare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = so_long
 
 SOURCES = get_next_line.c get_next_line_utils.c read_map.c check.c \
 			utils.c Map_errors.c Item_errors.c checker.c flood.c\
-			so_long.c initialize.c
+			so_long.c initialize.c render.c movement.c
 
 PRINTF = printf/libftprintf.a
 
