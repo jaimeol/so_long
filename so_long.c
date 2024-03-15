@@ -6,13 +6,11 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:29:55 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/15 16:07:58 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/15 17:16:12 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int		mlx_key_hook(void *win_ptr, int (*f)(), void *param);
 
 int	close_window(t_window *window, t_game *game)
 {
@@ -63,9 +61,9 @@ int main(int argc, char *argv[])
 	(*game).map = create_map(map_file, &game);
 	checker(game);
 	window.win = mlx_new_window(window.mlx, ((*game).x_large) *  64, ((*game).y_large) * 64 , "juego");
-	initialize_and_render(game, &window, &new_map);
-	mlx_hook(window.mlx, 2, 0, keyhook, &game);
-	//mlx_key_hook(window.mlx, keyhook, &game);
+	//initialize_and_render(game, &window, &new_map);
+	mlx_hook(window.win, 2, 0, keyhook, &game);
+	mlx_loop_hook(window.mlx, initialize_and_render, &game);
 	mlx_loop(window.mlx);
 	free (map_content);
 	exit (0);
