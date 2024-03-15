@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:09:31 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/14 16:53:47 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/15 12:25:15 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,6 @@ typedef struct s_game
 	int		map_size;
 }	t_game;
 
-typedef struct s_map
-{
-	t_window	win;
-	t_image		image;
-	t_game		game;
-}	t_map;
-
 enum
 {
 	KEY_A = 0,
@@ -81,9 +74,13 @@ void	render_wall(t_game *game, t_image *map, t_window *mlx);
 void	render_player(t_game *game, t_image *map, t_window *mlx);
 void	render_coin(t_game *game, t_image *map, t_window *mlx);
 void	render_exit(t_game *game, t_image *map, t_window *mlx);
+int		initialize_and_render(t_game *game, t_window *window, t_image *map);
 
-int	keyhook(int keycode, t_map *scene);
-void	movement(t_map *scene, int dir);
+void	exit_game(t_window *window, t_game *game);
+int		close_window(t_window *window, t_game *game);
+
+int		keyhook(int keycode, t_game *game);
+void	movement(t_game *game, int dir);
 
 int		ft_strlen(const char *s);
 char	*ft_strjoin(char *s1, char *s2);
