@@ -6,100 +6,32 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 14:19:39 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/14 12:46:04 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/19 13:16:22 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	render_wall(t_game *game, t_image *map, t_window *mlx)
+int	render(t_game *game, t_window *window, t_image *image)
 {
-	int		i;
-	int		j;
-	void	*wall;
+	int	i;
+	int	j;
 
-	i = 0;
-	while (game->map[i])
+	i = -1;
+	while (++i < game->y_large)
 	{
-		j = 0;
-		while (game->map[i][j])
-		{
-			if (game->map[i][j] == '1')
-			{
-				wall = map->wall_img;
-				mlx_put_image_to_window(mlx->mlx, mlx->win, wall, j * 64 , i * 64);
-			}
-			j++;
-		}
-		i++;
-	}
-}
-
-void	render_player(t_game *game, t_image *map, t_window *mlx)
-{
-	int		i;
-	int		j;
-	void	*player;
-
-	i = 0;
-	while (game->map[i])
-	{
-		j = 0;
-		while (game->map[i][j])
+		j = -1;
+		while (++j < game->x_large)
 		{
 			if (game->map[i][j] == 'P')
-			{
-				player = map->player_img;
-				mlx_put_image_to_window(mlx->mlx, mlx->win, player, j * 64 , i * 64);
-			}
-			j++;
-		}
-		i++;
-	}
-}
-
-void	render_coin(t_game *game, t_image *map, t_window *mlx)
-{
-	int		i;
-	int		j;
-	void	*coin;
-
-	i = 0;
-	while (game->map[i])
-	{
-		j = 0;
-		while (game->map[i][j])
-		{
-			if (game->map[i][j] == 'C')
-			{
-				coin = map->coin_img;
-				mlx_put_image_to_window(mlx->mlx, mlx->win, coin, j * 64 , i * 64);
-			}
-			j++;
-		}
-		i++;
-	}
-}
-
-void	render_exit(t_game *game, t_image *map, t_window *mlx)
-{
-	int		i;
-	int		j;
-	void	*exit;
-
-	i = 0;
-	while (game->map[i])
-	{
-		j = 0;
-		while (game->map[i][j])
-		{
+				mlx_put_image_to_window(window->mlx, window->win, image->player_img, j * 64, i * 64);
+			if (game->map[i][j] == '1')
+				mlx_put_image_to_window(window->mlx, window->win, image->wall_img, j * 64, i * 64);
 			if (game->map[i][j] == 'E')
-			{
-				exit = map->exit_img;
-				mlx_put_image_to_window(mlx->mlx, mlx->win, exit, j * 64 , i * 64);
-			}
-			j++;
+				mlx_put_image_to_window(window->mlx, window->win, image->exit_img, j * 64, i * 64);
+			if (game->map[i][j] == 'C')
+				mlx_put_image_to_window(window->mlx, window->win, image->coin_img, j * 64, i * 64);
 		}
-		i++;
 	}
+	return (0);
 }

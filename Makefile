@@ -6,7 +6,7 @@
 #    By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/10 14:24:32 by jolivare          #+#    #+#              #
-#    Updated: 2024/03/15 16:02:39 by jolivare         ###   ########.fr        #
+#    Updated: 2024/03/18 17:35:58 by jolivare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ $(NAME): $(OBJECTS) printf/libftprintf.a mlx/libmlx.a
 clean:
 	make clean -sC printf
 	$(REMOVE) $(OBJECTS)
+	make -C mlx/ clean
 fclean: clean
 	make fclean -sC printf
 	$(REMOVE) $(NAME)

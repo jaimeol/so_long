@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:09:31 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/15 16:12:16 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/19 12:56:28 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,17 @@ typedef struct s_image
 
 typedef struct s_game
 {
-	char	**map;
-	int		y_large;
-	int		x_large;
-	int		x_p;
-	int		y_p;
-	int		c_num;
-	int		e_x;
-	int		e_y;
-	int		map_size;
+	char		**map;
+	int			y_large;
+	int			x_large;
+	int			x_p;
+	int			y_p;
+	int			c_num;
+	int			e_x;
+	int			e_y;
+	int			map_size;
+	t_image		image;
+	t_window	win;
 }	t_game;
 
 enum
@@ -70,17 +72,17 @@ void	initialize_wall(void *mlx, t_image *map);
 void	initialize_player(void *mlx, t_image *map);
 void	initialize_coin(void *mlx, t_image *map);
 void	initialize_exit(void *mlx, t_image *map);
-void	render_wall(t_game *game, t_image *map, t_window *mlx);
-void	render_player(t_game *game, t_image *map, t_window *mlx);
-void	render_coin(t_game *game, t_image *map, t_window *mlx);
-void	render_exit(t_game *game, t_image *map, t_window *mlx);
-int		initialize_and_render(t_game *game, t_window *window, t_image *map);
+int		initialize(t_window *window, t_image *map);
+int		render(t_game *game, t_window *window, t_image *map);
 
-void	exit_game(t_window *window, t_game *game);
-int		close_window(t_window *window, t_game *game);
+void	exit_game(t_game *game);
+int		close_window(t_game *game);
 
 int		keyhook(int keycode, t_game *game);
-void	movement(t_game *game, int dir);
+void	move_up(t_game *game);
+void	move_down(t_game *game);
+void	move_right(t_game *game);
+void	move_left(t_game *game);
 
 int		ft_strlen(const char *s);
 char	*ft_strjoin(char *s1, char *s2);
@@ -103,7 +105,7 @@ void	check_coins(t_game **game);
 void	check_exit(t_game *game);
 void	check_player(t_game *game);
 void	check_path(t_game *game);
-void	assign_player_pos(t_game **game);
+void	assign_player_pos(t_game *game);
 char	**duplicate_map(t_game *game);
 void	flood_map(int x, int y, char **aux_map);
 void	format_error(void);
