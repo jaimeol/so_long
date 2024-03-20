@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:09:31 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/20 14:35:37 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/20 15:52:35 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@
 # define COIN "sprites/coin.xpm"
 # define EXIT "sprites/exit.xpm"
 # define ROAD "sprites/road.xpm"
+# define WALK_R "sprites/walk_anim_right.xpm"
+# define WALK_L "sprites/walk_anim_left.xpm"
+# define WALK_B "sprites/walk_anim_back.xpm"
 # define BUFFER_SIZE 33
 
 typedef struct s_window
@@ -39,6 +42,9 @@ typedef struct s_image
 	void	*coin_img;
 	void	*exit_img;
 	void	*road_img;
+	void	*walkr_img;
+	void	*walkl_img;
+	void	*walkb_img;
 }	t_image;
 
 typedef struct s_game
@@ -52,6 +58,7 @@ typedef struct s_game
 	int			e_x;
 	int			e_y;
 	int			map_size;
+	int			player_dir;
 	t_image		image;
 	t_window	win;
 }	t_game;

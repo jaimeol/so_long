@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 11:32:37 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/20 14:32:20 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/20 15:50:41 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	move_up(t_game *game)
 	game->map[game->y_p][game->x_p] = '0';
 	game->map[game->y_p - 1][game->x_p] = 'P';
 	game->y_p--;
+	game->player_dir = 0;
 }
 void	move_down(t_game *game)
 {
@@ -43,6 +44,7 @@ void	move_down(t_game *game)
 	game->map[game->y_p][game->x_p] = '0';
 	game->map[game->y_p + 1][game->x_p] = 'P';
 	game->y_p++;
+	game->player_dir = 1;
 }
 
 void	move_right(t_game *game)
@@ -60,6 +62,7 @@ void	move_right(t_game *game)
 	game->map[game->y_p][game->x_p] = '0';
 	game->map[game->y_p][game->x_p + 1] = 'P';
 	game->x_p++;
+	game->player_dir = 2;
 }
 
 void	move_left(t_game *game)
@@ -77,6 +80,7 @@ void	move_left(t_game *game)
 	game->map[game->y_p][game->x_p] = '0';
 	game->map[game->y_p][game->x_p - 1] = 'P';
 	game->x_p--;
+	game->player_dir = 3;
 }
 
 int	keyhook(int keycode, t_game *game)

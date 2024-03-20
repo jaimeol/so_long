@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 14:19:39 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/20 14:22:26 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/20 16:02:40 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	render_player(t_game *game, t_image *map, t_window *mlx)
 {
 	int		i;
 	int		j;
-	void	*player;
 
 	i = 0;
 	while (game->map[i])
@@ -50,9 +49,15 @@ void	render_player(t_game *game, t_image *map, t_window *mlx)
 		{
 			if (game->map[i][j] == 'P')
 			{
-				player = map->player_img;
 				mlx_put_image_to_window(mlx->mlx, mlx->win, map->road_img, j * 64, i * 64);
-				mlx_put_image_to_window(mlx->mlx, mlx->win, player, j * 64 , i * 64);
+				if (game->player_dir == 0)
+					mlx_put_image_to_window(mlx->mlx, mlx->win, map->walkb_img, j * 64 , i * 64);
+				else if (game->player_dir == 2)
+					mlx_put_image_to_window(mlx->mlx, mlx->win, map->walkr_img, j * 64 , i * 64);
+				else if (game->player_dir == 3)
+					mlx_put_image_to_window(mlx->mlx, mlx->win, map->walkl_img, j * 64 , i * 64);
+				else
+					mlx_put_image_to_window(mlx->mlx, mlx->win, map->player_img, j * 64 , i * 64);
 			}
 			j++;
 		}
