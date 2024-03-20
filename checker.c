@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:54:34 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/18 10:30:41 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/20 10:09:52 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void	assign_player_pos(t_game *game)
 		{
 			if (game->map[i][j] == 'P')
 			{
-				ft_printf("%c\n", game->map[i][j]);
 				game->y_p = i;
 				game->x_p = j;
 			}

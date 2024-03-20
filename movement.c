@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 11:32:37 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/19 13:19:24 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/20 14:32:20 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ void	move_left(t_game *game)
 
 int	keyhook(int keycode, t_game *game)
 {
-	int i = 0;
 	if (keycode == KEY_W || keycode == KEY_UP)
 		move_up(game);
 	if (keycode == KEY_S || keycode == KEY_DOWN)
@@ -92,10 +91,5 @@ int	keyhook(int keycode, t_game *game)
 		move_right(game);
 	if (keycode == KEY_ESCAPE)
 		exit_game(game);
-	while ((*game).map[i])
-	{
-		ft_printf("%s\n", (*game).map[i]);
-		i++;
-	}
 	return (0);
 }

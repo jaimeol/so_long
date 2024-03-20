@@ -6,7 +6,7 @@
 #    By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/10 14:24:32 by jolivare          #+#    #+#              #
-#    Updated: 2024/03/18 17:35:58 by jolivare         ###   ########.fr        #
+#    Updated: 2024/03/20 14:39:04 by jolivare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJECTS = $(SOURCES:.c=.o)
 
 CFLAGS = -Wall -Wextra -Werror
 MLX_FLAGS = -lmlx -framework OPENGL -framework Appkit
-#INCLUDES = -I/opt/X11/include -Imlx
+INCLUDES = -I/opt/X11/include -Imlx
 REMOVE = rm -f
 CC = cc
 
@@ -31,10 +31,10 @@ all: makelib $(NAME)
 makelib:
 	$(MAKE) -sC printf
 
-mlx/libmlx.a:
-	make -C mlx/
+#mlx/libmlx.a:
+#	make -C mlx/
 
-$(NAME): $(OBJECTS) printf/libftprintf.a mlx/libmlx.a
+$(NAME): $(OBJECTS) printf/libftprintf.a
 	$(CC) $(OBJECTS) $(MLX_FLAGS) -o $(NAME) -Lprintf/ -lftprintf
 
 %.o: %.c
@@ -42,7 +42,6 @@ $(NAME): $(OBJECTS) printf/libftprintf.a mlx/libmlx.a
 clean:
 	make clean -sC printf
 	$(REMOVE) $(OBJECTS)
-	make -C mlx/ clean
 fclean: clean
 	make fclean -sC printf
 	$(REMOVE) $(NAME)

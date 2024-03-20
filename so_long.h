@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:09:31 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/19 12:56:28 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/20 14:35:37 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define PLAYER "sprites/player.xpm"
 # define COIN "sprites/coin.xpm"
 # define EXIT "sprites/exit.xpm"
+# define ROAD "sprites/road.xpm"
 # define BUFFER_SIZE 33
 
 typedef struct s_window
@@ -37,6 +38,7 @@ typedef struct s_image
 	void	*player_img;
 	void	*coin_img;
 	void	*exit_img;
+	void	*road_img;
 }	t_image;
 
 typedef struct s_game
@@ -72,8 +74,14 @@ void	initialize_wall(void *mlx, t_image *map);
 void	initialize_player(void *mlx, t_image *map);
 void	initialize_coin(void *mlx, t_image *map);
 void	initialize_exit(void *mlx, t_image *map);
-int		initialize(t_window *window, t_image *map);
-int		render(t_game *game, t_window *window, t_image *map);
+void	initialize_road(void *mlx, t_image *map);
+void	initialize(t_window *window, t_image *map);
+void	render_coin(t_game *game, t_image *map, t_window *mlx);
+void	render_exit(t_game *game, t_image *map, t_window *mlx);
+void	render_player(t_game *game, t_image *map, t_window *mlx);
+void	render_wall(t_game *game, t_image *map, t_window *mlx);
+void	render_road(t_game *game, t_image *map, t_window *mlx);
+int		render(t_game *game, t_window *window);
 
 void	exit_game(t_game *game);
 int		close_window(t_game *game);
