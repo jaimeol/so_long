@@ -6,15 +6,22 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:29:55 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/20 14:35:17 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/21 16:44:10 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	exit_game(t_game *game)
+int	close_window(t_game *game)
 {
-	mlx_destroy_window(&game->win.mlx, &game->win.win);
+	exit_game(game);
+	return (0);
+}
+
+int	exit_game(t_game *game)
+{
+	free_map ((*game).map);
+	system("leaks -q so_long");
 	exit (0);
 }
 
@@ -57,15 +64,16 @@ int main(int argc, char *argv[])
 	check_format(argv[1]);
     char *map_file = argv[1];
 	game = (t_game *)malloc(sizeof(t_game));
-	game->map = (char **)malloc(sizeof(char *) * (game->x_large));
     read_map(map_file, &game);
 	game->map = create_map(map_file, &game);
 	checker(game);
-	window.win = mlx_new_window(window.mlx, game->x_large *  64, game->y_large *  64, "juego");
+	game->steps = 0;
+	game->player_dir = 1;
+	window.win = mlx_new_window(window.mlx, game->x_large *  64, game->y_large *  64, "Life is a highway");
 	initialize(&window, &game->image);
 	mlx_clear_window(window.mlx, window.win);
 	mlx_hook(window.win, 2, 0, keyhook, game);
-	mlx_hook(window.win, 17, 0, (void *)exit_game, game);
+	mlx_hook(window.win, 17, 0, exit_game, game);
 	mlx_loop_hook(window.mlx, render, game);
 	mlx_loop(window.mlx);
 	exit (0);

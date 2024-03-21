@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:54:34 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/20 10:09:52 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/21 16:45:23 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ void	check_path(t_game *game)
 
 	i = 0;
 	aux_map = (char **)malloc(sizeof(char *) * game->y_large);
+	if (!aux_map)
+		exit (1);
 	aux_map = duplicate_map(game);
 	assign_player_pos(game);
 	flood_map(game->y_p, game->x_p, aux_map);

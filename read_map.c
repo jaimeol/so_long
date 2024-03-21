@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:30:15 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/18 11:44:15 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/21 16:39:22 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ char	**create_map(char *file, t_game **game)
 	char	**map;
 	int		i;
 	char	*aux_map;
-	int		width;
 	
 	i = 0;
 	int fd = open(file, O_RDONLY);
@@ -47,8 +46,6 @@ char	**create_map(char *file, t_game **game)
 		aux_map = get_next_line(fd);
 		map[i] = erase_newline(aux_map);
 		free(map[i]);
-		width = ft_strlen(map[i]);
-		//ft_printf ("Largo del mapa: %d\n", width);
 		i++;
 	}
 	map[i] = NULL;
@@ -105,7 +102,6 @@ char	*read_map(char *map, t_game **game)
 	ft_printf("\n");
 	checker(game);
 	free(map_content);
+	system("leaks -q so_long");
 	exit (0);
-	//atexit(leaks);
-    return (0);
 }*/

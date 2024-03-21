@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:09:31 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/20 15:52:35 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/21 16:01:59 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,10 @@ typedef struct s_game
 	int			e_y;
 	int			map_size;
 	int			player_dir;
+	int			steps;
+	void		*mlx;
+	void		*win;
 	t_image		image;
-	t_window	win;
 }	t_game;
 
 enum
@@ -90,7 +92,7 @@ void	render_wall(t_game *game, t_image *map, t_window *mlx);
 void	render_road(t_game *game, t_image *map, t_window *mlx);
 int		render(t_game *game, t_window *window);
 
-void	exit_game(t_game *game);
+int	exit_game(t_game *game);
 int		close_window(t_game *game);
 
 int		keyhook(int keycode, t_game *game);
