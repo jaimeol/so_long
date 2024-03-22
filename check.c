@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 16:22:47 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/22 12:27:22 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/22 16:31:51 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	check_char(t_game *game)
 	}
 }
 
-void	check_coins(t_game **game)
+void	check_coins(t_game *game)
 {
 	int	i;
 	int	j;
@@ -81,12 +81,12 @@ void	check_coins(t_game **game)
 
 	coin = 0;
 	i = 0;
-	while ((*game)->map[i])
+	while (game->map[i])
 	{
 		j = 0;
-		while (j != (*game)->x_large - 1)
+		while (j != game->x_large - 1)
 		{
-			if ((*game)->map[i][j] == 'C')
+			if (game->map[i][j] == 'C')
 			{
 				coin++;
 			}
@@ -96,7 +96,7 @@ void	check_coins(t_game **game)
 	}
 	if (coin < 1)
 		coin_error();
-	(*game)->c_num = coin;
+	game->c_num = coin;
 }
 
 void	check_exit(t_game *game)

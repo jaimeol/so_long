@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:09:31 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/22 15:41:05 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/22 16:32:08 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void	check_format(char *argv);
 void	check_width(t_game *game);
 void	check_walls(t_game *game);
 void	check_char(t_game *game);
-void	check_coins(t_game **game);
+void	check_coins(t_game *game);
 void	check_exit(t_game *game);
 void	check_player(t_game *game);
 void	check_path(t_game *game);
