@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:54:34 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/21 16:45:23 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/22 15:44:27 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ void	check_player(t_game *game)
 	int	i;
 	int	j;
 	int	player;
-	
+
 	player = 0;
 	i = 0;
-	while(game->map[i])
+	while (game->map[i])
 	{
 		j = 0;
 		while (j != game->x_large - 1)
@@ -51,10 +51,10 @@ void	assign_player_pos(t_game *game)
 	int	i;
 	int	j;
 	int	player;
-	
+
 	player = 0;
 	i = 1;
-	while(++i < game->y_large)
+	while (++i < game->y_large)
 	{
 		j = 1;
 		while (j++ < game->x_large - 1)
@@ -75,9 +75,6 @@ void	check_path(t_game *game)
 	int		j;
 
 	i = 0;
-	aux_map = (char **)malloc(sizeof(char *) * game->y_large);
-	if (!aux_map)
-		exit (1);
 	aux_map = duplicate_map(game);
 	assign_player_pos(game);
 	flood_map(game->y_p, game->x_p, aux_map);

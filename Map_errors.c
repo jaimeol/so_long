@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 12:11:06 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/06 11:52:47 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/22 12:36:39 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	wall_error(void)
 
 void	char_error(void)
 {
-	ft_printf("Error: El mapa solo puede estar compuesto por los caracteres 1, 0, P, E y C\n");
+	ft_printf("Error: El mapa debe estar compuesto solo por 1, 0, P, E y C\n");
 	exit (1);
 }
 

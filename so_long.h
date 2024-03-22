@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:09:31 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/21 16:01:59 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/22 15:41:05 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ enum
 	KEY_UP = 126
 };
 
-
 void	initialize_wall(void *mlx, t_image *map);
 void	initialize_player(void *mlx, t_image *map);
 void	initialize_coin(void *mlx, t_image *map);
@@ -90,9 +89,10 @@ void	render_exit(t_game *game, t_image *map, t_window *mlx);
 void	render_player(t_game *game, t_image *map, t_window *mlx);
 void	render_wall(t_game *game, t_image *map, t_window *mlx);
 void	render_road(t_game *game, t_image *map, t_window *mlx);
+void	render_direction(t_window *mlx, t_game *game, int i, int j);
 int		render(t_game *game, t_window *window);
 
-int	exit_game(t_game *game);
+int		exit_game(t_game *game);
 int		close_window(t_game *game);
 
 int		keyhook(int keycode, t_game *game);
@@ -133,5 +133,7 @@ void	coin_error(void);
 void	exit_error(void);
 void	player_error(void);
 void	path_error(void);
+void	args_error(void);
+void	mlx_error(void);
 
 #endif

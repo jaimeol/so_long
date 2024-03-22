@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 10:25:31 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/21 16:08:05 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/22 12:33:32 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char	*ft_strdup(const char *s)
 char	*erase_newline(char *str)
 {
 	int	i;
-	
+
 	i = 0;
 	while (str[i])
 	{
@@ -73,7 +73,7 @@ char	*erase_newline(char *str)
 
 char	**duplicate_map(t_game *game)
 {
-	int 	i;
+	int		i;
 	char	**aux_map;
 
 	i = 0;
@@ -85,5 +85,5 @@ char	**duplicate_map(t_game *game)
 	}
 	aux_map[i] = NULL;
 	free(aux_map);
-	return(aux_map);
+	return (aux_map);
 }

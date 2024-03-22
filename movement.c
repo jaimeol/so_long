@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 11:32:37 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/21 16:02:42 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/22 12:38:12 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	move_up(t_game *game)
 	game->y_p--;
 	game->player_dir = 0;
 }
+
 void	move_down(t_game *game)
 {
 	if (game->map[game->y_p + 1][game->x_p] == '1')
@@ -99,7 +100,7 @@ int	keyhook(int keycode, t_game *game)
 	{
 		move_left(game);
 		ft_printf("Steps: %d\n", game->steps++);
-	}	
+	}
 	if (keycode == KEY_D || keycode == KEY_RIGHT)
 	{
 		move_right(game);

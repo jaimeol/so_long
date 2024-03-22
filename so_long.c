@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:29:55 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/21 16:44:10 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/22 15:12:58 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	close_window(t_game *game)
 int	exit_game(t_game *game)
 {
 	free_map ((*game).map);
-	system("leaks -q so_long");
 	exit (0);
 }
 
@@ -45,33 +44,28 @@ int	render(t_game *game, t_window *window)
 	return (0);
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	t_window	window;
-    t_game 		*game;
+	t_game		*game;
+	char		*map_file;
 
 	window.mlx = mlx_init();
 	if (argc != 2)
-	{
-		ft_printf("Error: Número de argumentos inválido\n");
-		exit (1);
-	}
+		args_error();
 	if (!window.mlx)
-	{
-		ft_printf("Fallo de mlx\n");
-		return (1);
-	}
+		mlx_error();
 	check_format(argv[1]);
-    char *map_file = argv[1];
+	map_file = argv[1];
 	game = (t_game *)malloc(sizeof(t_game));
-    read_map(map_file, &game);
+	read_map(map_file, &game);
 	game->map = create_map(map_file, &game);
 	checker(game);
 	game->steps = 0;
 	game->player_dir = 1;
-	window.win = mlx_new_window(window.mlx, game->x_large *  64, game->y_large *  64, "Life is a highway");
+	window.win = mlx_new_window(window.mlx, game->x_large * 64,
+			game->y_large * 64, "Kachao");
 	initialize(&window, &game->image);
-	mlx_clear_window(window.mlx, window.win);
 	mlx_hook(window.win, 2, 0, keyhook, game);
 	mlx_hook(window.win, 17, 0, exit_game, game);
 	mlx_loop_hook(window.mlx, render, game);

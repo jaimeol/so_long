@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:05:01 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/01 16:32:00 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/22 12:41:37 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ char	*ft_strjoin(char *s1, char *s2)
 		j++;
 	}
 	dest[i + j] = '\0';
-	//free (s1);
 	return (dest);
 }
 

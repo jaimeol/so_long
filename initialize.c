@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 16:40:53 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/20 16:01:30 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/22 12:40:16 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	initialize_wall(void *mlx, t_image *map)
 	int	size;
 
 	size = 64;
-	map->wall_img = mlx_xpm_file_to_image(mlx, WALL, &size, &size);	
+	map->wall_img = mlx_xpm_file_to_image(mlx, WALL, &size, &size);
 }
 
 void	initialize_player(void *mlx, t_image *map)
@@ -36,21 +36,21 @@ void	initialize_coin(void *mlx, t_image *map)
 	int	size;
 
 	size = 64;
-	map->coin_img = mlx_xpm_file_to_image(mlx, COIN, &size, &size);	
+	map->coin_img = mlx_xpm_file_to_image(mlx, COIN, &size, &size);
 }
-
 
 void	initialize_exit(void *mlx, t_image *map)
 {
 	int	size;
 
 	size = 64;
-	map->exit_img = mlx_xpm_file_to_image(mlx, EXIT, &size, &size);	
+	map->exit_img = mlx_xpm_file_to_image(mlx, EXIT, &size, &size);
 }
 
 void	initialize_road(void *mlx, t_image *map)
 {
 	int	size;
+
 	size = 64;
 	map->road_img = mlx_xpm_file_to_image(mlx, ROAD, &size, &size);
 }

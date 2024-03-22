@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:30:15 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/21 16:39:22 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/22 12:35:08 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ char	**create_map(char *file, t_game **game)
 	char	**map;
 	int		i;
 	char	*aux_map;
-	
+	int		fd;
+
 	i = 0;
-	int fd = open(file, O_RDONLY);
+	fd = open(file, O_RDONLY);
 	aux_map = NULL;
 	map = (char **)malloc(sizeof(char *) * ((*game)->y_large));
 	if (!map)
@@ -41,7 +42,7 @@ char	**create_map(char *file, t_game **game)
 	while (i < (*game)->y_large)
 	{
 		map[i] = (char *)malloc(sizeof(char) * (*game)->x_large);
-		if  (!map[i])
+		if (!map[i])
 			free_map(map);
 		aux_map = get_next_line(fd);
 		map[i] = erase_newline(aux_map);
@@ -58,7 +59,7 @@ char	*read_map(char *map, t_game **game)
 	char	*line;
 	int		height;
 	int		width;
-	
+
 	height = 0;
 	width = 0;
 	(*game) = (t_game *)malloc(sizeof(t_game));
@@ -79,7 +80,7 @@ char	*read_map(char *map, t_game **game)
 	(*game)->map_size = (width * height);
 	close(fd);
 	return (line);
-} 
+}
 
 /*int main(int argc, char *argv[])
 {
