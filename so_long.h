@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:09:31 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/22 16:32:08 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/04/10 11:18:01 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ typedef struct s_game
 	int			x_p;
 	int			y_p;
 	int			c_num;
-	int			e_x;
-	int			e_y;
 	int			map_size;
 	int			player_dir;
 	int			steps;

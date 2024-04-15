@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:29:55 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/22 15:12:58 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/04/10 10:34:07 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	close_window(t_game *game)
 int	exit_game(t_game *game)
 {
 	free_map ((*game).map);
+	system("leaks -q so_long");
 	exit (0);
 }
 
@@ -60,6 +61,7 @@ int	main(int argc, char *argv[])
 	game = (t_game *)malloc(sizeof(t_game));
 	read_map(map_file, &game);
 	game->map = create_map(map_file, &game);
+
 	checker(game);
 	game->steps = 0;
 	game->player_dir = 1;

@@ -6,7 +6,7 @@
 #    By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/10 14:24:32 by jolivare          #+#    #+#              #
-#    Updated: 2024/03/22 15:27:34 by jolivare         ###   ########.fr        #
+#    Updated: 2024/04/10 10:28:11 by jolivare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,3 +48,10 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
+clear:
+	clear
+
+r: run
+run: clear all
+	./$(NAME) maps/map.ber

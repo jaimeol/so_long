@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 11:32:37 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/22 12:38:12 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/03/23 11:58:07 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	move_up(t_game *game)
 	game->map[game->y_p - 1][game->x_p] = 'P';
 	game->y_p--;
 	game->player_dir = 0;
+	ft_printf("Steps: %d\n", game->steps++);
 }
 
 void	move_down(t_game *game)
@@ -46,6 +47,7 @@ void	move_down(t_game *game)
 	game->map[game->y_p + 1][game->x_p] = 'P';
 	game->y_p++;
 	game->player_dir = 1;
+	ft_printf("Steps: %d\n", game->steps++);
 }
 
 void	move_right(t_game *game)
@@ -64,6 +66,7 @@ void	move_right(t_game *game)
 	game->map[game->y_p][game->x_p + 1] = 'P';
 	game->x_p++;
 	game->player_dir = 2;
+	ft_printf("Steps: %d\n", game->steps++);
 }
 
 void	move_left(t_game *game)
@@ -82,6 +85,7 @@ void	move_left(t_game *game)
 	game->map[game->y_p][game->x_p - 1] = 'P';
 	game->x_p--;
 	game->player_dir = 3;
+	ft_printf("Steps: %d\n", game->steps++);
 }
 
 int	keyhook(int keycode, t_game *game)
@@ -89,23 +93,13 @@ int	keyhook(int keycode, t_game *game)
 	if (keycode == KEY_W || keycode == KEY_UP)
 	{
 		move_up(game);
-		ft_printf("Steps: %d\n", game->steps++);
 	}
 	if (keycode == KEY_S || keycode == KEY_DOWN)
-	{
 		move_down(game);
-		ft_printf("Steps: %d\n", game->steps++);
-	}
 	if (keycode == KEY_A || keycode == KEY_LEFT)
-	{
 		move_left(game);
-		ft_printf("Steps: %d\n", game->steps++);
-	}
 	if (keycode == KEY_D || keycode == KEY_RIGHT)
-	{
 		move_right(game);
-		ft_printf("Steps: %d\n", game->steps++);
-	}
 	if (keycode == KEY_ESCAPE)
 		close_window(game);
 	return (0);
