@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:09:31 by jolivare          #+#    #+#             */
-/*   Updated: 2024/04/10 11:18:01 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/04/17 17:29:03 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,10 +108,10 @@ char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, int start, int len);
 char	*get_next_line(int fd);
 char	*erase_newline(char *str);
-char	*read_map(char *map, t_game **game);
-char	**create_map(char *file, t_game **game);
+char	*read_map(char *map, t_game *game);
+char	**create_map(char *file, t_game *game);
 void	checker(t_game *game);
-void	*free_map(char **map);
+void	free_map(char **map);
 void	check_format(char *argv);
 void	check_width(t_game *game);
 void	check_walls(t_game *game);

@@ -6,7 +6,7 @@
 #    By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/10 14:24:32 by jolivare          #+#    #+#              #
-#    Updated: 2024/04/10 10:28:11 by jolivare         ###   ########.fr        #
+#    Updated: 2024/04/17 16:27:08 by jolivare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ PRINTF = printf/libftprintf.a
 OBJECTS = $(SOURCES:.c=.o)
 
 CFLAGS = -Wall -Wextra -Werror
-MLX_FLAGS = -lmlx -framework OPENGL -framework Appkit
+MLX_FLAGS = -lmlx -framework OPENGL -framework Appkit -g
 INCLUDES = -I/opt/X11/include -Imlx
 REMOVE = rm -f
 CC = cc

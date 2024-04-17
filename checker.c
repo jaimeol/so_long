@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:54:34 by jolivare          #+#    #+#             */
-/*   Updated: 2024/04/10 12:14:06 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/04/17 17:23:39 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,6 @@ void	assign_player_pos(t_game *game)
 
 void	check_path(t_game *game)
 {
-	int index = 0;
-
-
-
 	char	**aux_map;
 	int		i;
 	int		j;
@@ -84,34 +80,18 @@ void	check_path(t_game *game)
 	aux_map = duplicate_map(game);
 	assign_player_pos(game);
 	flood_map(game->y_p, game->x_p, aux_map);
-
 	while (aux_map[i])
 	{
 		j = 0;
 		while (j != game->x_large - 1)
 		{
 			if (aux_map[i][j] != '1')
-			{
 				path_error();
-			}
 			j++;
 		}
 		i++;
 	}
-
-		printf("=======================================\n\n");
-	index = 0;
-	while (game->map[index])
-		printf("\t[ %s ]\n", game->map[index++]);
-	printf("\n=======================================\n\n");
 	free_map(aux_map);
-	printf("=======================================\n\n");
-	index = 0;
-	while (game->map[index])
-		printf("\t[ %s ]\n", game->map[index++]);
-	printf("\n=======================================\n\n");
-	exit(1);
-	
 }
 
 void	check_format(char *argv)
