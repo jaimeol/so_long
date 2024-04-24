@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
+#    By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 10:39:11 by jolivare          #+#    #+#              #
-#    Updated: 2023/11/10 15:33:44 by codespace        ###   ########.fr        #
+#    Updated: 2024/04/23 11:41:20 by jolivare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ CFLAGS = -Wall -Wextra -Werror
 REMOVE = rm -f
 CC = cc
 
-all: $(NAME)
+all: $(NAME) 
 
 $(NAME): $(OBJECTS)
 	ar -rcs $(NAME) $(OBJECTS)

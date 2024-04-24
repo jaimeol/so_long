@@ -6,12 +6,11 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 10:25:31 by jolivare          #+#    #+#             */
-/*   Updated: 2024/04/17 18:50:33 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/04/17 18:57:04 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
 
 char	*ft_strdup(const char *s)
 {

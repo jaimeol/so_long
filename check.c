@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 16:22:47 by jolivare          #+#    #+#             */
-/*   Updated: 2024/03/22 16:31:51 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/04/24 10:42:11 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ void	check_char(t_game *game)
 	int	j;
 
 	i = 0;
-	while (game->map[i])
+	while (i != game->y_large)
 	{
 		j = 0;
-		while (j != game->x_large - 1)
+		while (j != game->x_large)
 		{
 			if (game->map[i][j] != '0' && game->map[i][j] != '1'
 				&& game->map[i][j] != 'P'

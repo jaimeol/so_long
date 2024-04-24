@@ -6,7 +6,7 @@
 #    By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/10 14:24:32 by jolivare          #+#    #+#              #
-#    Updated: 2024/04/17 16:27:08 by jolivare         ###   ########.fr        #
+#    Updated: 2024/04/24 11:12:27 by jolivare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,13 +29,10 @@ CC = cc
 all: makelib $(NAME)
 
 makelib:
-	$(MAKE) -sC printf
+	$(MAKE) -C printf
 
-#mlx/libmlx.a:
-#	make -C mlx/
-
-$(NAME): $(OBJECTS) printf/libftprintf.a
-	$(CC) $(OBJECTS) $(MLX_FLAGS) -o $(NAME) -Lprintf/ -lftprintf
+$(NAME): $(OBJECTS) $(PRINTF)
+	$(CC) $(OBJECTS) $(MLX_FLAGS) -o $(NAME) $(PRINTF)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -Imlx -c $< -o $@

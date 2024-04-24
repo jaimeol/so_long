@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:09:31 by jolivare          #+#    #+#             */
-/*   Updated: 2024/04/17 17:29:03 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/04/24 11:28:31 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ char	*get_next_line(int fd);
 char	*erase_newline(char *str);
 char	*read_map(char *map, t_game *game);
 char	**create_map(char *file, t_game *game);
+
 void	checker(t_game *game);
 void	free_map(char **map);
 void	check_format(char *argv);
@@ -123,6 +124,7 @@ void	check_path(t_game *game);
 void	assign_player_pos(t_game *game);
 char	**duplicate_map(t_game *game);
 void	flood_map(int x, int y, char **aux_map);
+
 void	format_error(void);
 void	width_error(void);
 void	wall_error(void);
@@ -133,5 +135,6 @@ void	player_error(void);
 void	path_error(void);
 void	args_error(void);
 void	mlx_error(void);
+void	print_error(void);
 
 #endif

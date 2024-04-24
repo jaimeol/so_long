@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:29:55 by jolivare          #+#    #+#             */
-/*   Updated: 2024/04/17 17:32:08 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/04/24 11:13:02 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	close_window(t_game *game)
 
 int	exit_game(t_game *game)
 {
-	free_map (game->map);
+	free_map(game->map);
 	exit (0);
 }
 
@@ -44,18 +44,12 @@ int	render(t_game *game, t_window *window)
 	return (0);
 }
 
-void	leaks()
-{
-	system("leaks -q so_long");
-}
-
 int	main(int argc, char *argv[])
 {
 	t_window	window;
 	t_game		game;
 	char		*map_file;
 
-	atexit(leaks);
 	window.mlx = mlx_init();
 	if (argc != 2)
 		args_error();
@@ -69,7 +63,7 @@ int	main(int argc, char *argv[])
 	game.steps = 0;
 	game.player_dir = 1;
 	window.win = mlx_new_window(window.mlx, game.x_large * 64,
-			game.y_large * 64, "Kachao");
+			game.y_large * 64, "So_long by jolivare");
 	initialize(&window, &game.image);
 	mlx_hook(window.win, 2, 0, keyhook, &game);
 	mlx_hook(window.win, 17, 0, exit_game, &game);
