@@ -10,4 +10,4 @@ In the so_long project at 42, we created a 2D game using the miniLibX graphic li
 We used C and the miniLibX library to develop the game, leveraging the graphic capabilities to create a visually appealing experience. We implemented the game logic, including player movement, interaction with map objects, and keyboard event handling.
 
 ## Future Update
-I will update this project with the bonus part and some changes, due to the migration to linux in 42 Madrid I had to rush the correction of this project as it only worked in Mac. However in the future update I will provide a Linux available version with an updated Makefile and some major changes, until that I hope this version is useful for you.
+I will update this project with the bonus part and some changes, due to the migration to linux in 42 Madrid I had to rush the correction of this project as it only worked in Mac. However, once I finish the common core, I will provide a Linux available version with an updated Makefile and some major changes, until that I hope this version is useful for you.
