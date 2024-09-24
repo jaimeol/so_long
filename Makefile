@@ -6,17 +6,17 @@
 #    By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/10 14:24:32 by jolivare          #+#    #+#              #
-#    Updated: 2024/04/24 11:12:27 by jolivare         ###   ########.fr        #
+#    Updated: 2024/09/24 17:53:31 by jolivare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-SOURCES = get_next_line.c get_next_line_utils.c read_map.c check.c \
-			utils.c Map_errors.c item_errors.c checker.c flood.c\
-			so_long.c initialize.c render.c movement.c render_direction.c \
+SOURCES = src/get_next_line.c src/get_next_line_utils.c src/read_map.c src/check.c \
+			src/utils.c src/Map_errors.c src/item_errors.c src/checker.c src/flood.c\
+			src/so_long.c src/initialize.c src/render.c src/movement.c src/render_direction.c \
 
-PRINTF = printf/libftprintf.a
+PRINTF = ../printf/libftprintf.a
 
 OBJECTS = $(SOURCES:.c=.o)
 
