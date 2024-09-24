@@ -1,5 +1,0 @@
-La  función checker va a ser únicamente para llamar a las funciones que imprimen el error
-
-Para hacer(Parseo):
--Mirar que el mapa termine en .ber
-
